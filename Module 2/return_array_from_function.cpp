@@ -1,25 +1,38 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+
 using namespace std;
-int* fun()
+
+class Person
 {
-    int *a=new int[5];
-    // int a[5];
-    for(int i=0;i<5;i++)
-    {
-        cin>>a[i];
-    }
-    return a;
+public:
+    char name[100];
+    float height;
+    int age;
+};
+
+bool compareByAge(const Person& p1, const Person& p2)
+{
+    return p1.age > p2.age;
 }
+
 int main()
 {
-    int *a=fun();
-    for(int i=0;i<5;i++)
-    {
-        cout<<a[i]<<" ";
-    }
-    cout<<endl;
-    
-    
-    // code
+    Person alif;
+    alif.height = 5.6;
+    alif.age = 19;
+    strcpy(alif.name, "Alif");
+
+    Person sheen;
+    sheen.height = 5.9;
+    sheen.age = 21;
+    strcpy(sheen.name, "Sheen");
+
+    Person persons[2] = {alif, sheen};
+    sort(persons, persons + 2, compareByAge);
+
+    cout << persons[0].name << endl;
+
     return 0;
 }
